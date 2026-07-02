@@ -1,42 +1,65 @@
 # Screen Fraud Detection
 
 ## Overview
-Detect whether an uploaded image is:
-- 📷 Real camera photo
-- 🖥️ Photo of a screen
+
+A lightweight computer vision system that detects whether an image is:
+- 📷 A real camera photograph
+- 🖥️ A photograph of a digital screen
+
+The model is built using **EfficientNet-B0** with transfer learning in PyTorch and is designed for fast, on-device inference.
+
+---
 
 ## Model
+
 - EfficientNet-B0 (Transfer Learning)
 - PyTorch
+- AdamW Optimizer
+- Early Stopping
+- ReduceLROnPlateau Scheduler
+
+---
 
 ## Dataset
-- Custom dataset collected manually
-- Real camera photos
-- Photos of laptop/monitor screens
-- Different lighting, brightness, and viewing angles
+
+A custom dataset collected manually containing:
+- Real camera photographs
+- Photos captured from laptop/monitor screens
+- Multiple lighting conditions
+- Different screen brightness levels
+- Various indoor and outdoor scenes
+
+---
 
 ## Results
 
-Test Accuracy: 91.11%
+| Metric | Value |
+|--------|-------|
+| **Best Validation Accuracy** | **93.33%** |
+| **Test Accuracy** | **91.11%** |
+| Precision | 93.02% |
+| Recall | 88.89% |
+| F1 Score | 90.91% |
+| Inference Latency | ~25 ms/image |
 
-Precision: 93.02%
-
-Recall: 88.89%
-
-F1 Score: 90.91%
-
-Latency: ~25 ms/image
+---
 
 ## Run
 
-Train
+### Train
 
+```bash
 python train.py
+```
 
-Evaluate
+### Evaluate
 
+```bash
 python evaluate.py
+```
 
-Predict
+### Predict
 
+```bash
 python predict.py image.jpg
+```
